@@ -5,20 +5,20 @@ add_definitions( -DMBEDTLS_CONFIG_FILE=\"mbedcrypto_mbedtls_config.h\" )
 
 # mbedcrypto main files
 set(MBEDCRYPTO_SRC
-    ../src/exception.cpp
-    ../src/conversions.cpp
-    ../src/types.cpp
-    ../src/tcodec.cpp
-    ../src/hash.cpp
-    ../src/cipher.cpp
-    ../src/mpi.cpp
-    ../src/rnd_generator.cpp
-    ../src/pk.cpp
-    ../src/rsa.cpp
+    ${CRYPTO}/src/exception.cpp
+    ${CRYPTO}/src/conversions.cpp
+    ${CRYPTO}/src/types.cpp
+    ${CRYPTO}/src/tcodec.cpp
+    ${CRYPTO}/src/hash.cpp
+    ${CRYPTO}/src/cipher.cpp
+    ${CRYPTO}/src/mpi.cpp
+    ${CRYPTO}/src/rnd_generator.cpp
+    ${CRYPTO}/src/pk.cpp
+    ${CRYPTO}/src/rsa.cpp
     )
 
 # mandatory mbedtls sources
-set(MBEDTLS_PATH "${DIR_3RDPARTY}/mbedtls/library")
+set(MBEDTLS_PATH "${CRYPTO}/3rdparty/mbedtls/library")
 set(MBEDTLS_SRC
     ${MBEDTLS_PATH}/error.c
     ${MBEDTLS_PATH}/base64.c
@@ -166,3 +166,4 @@ endif()
 if(BUILD_QT5_BIND)
     qt5_use_modules(mbedcrypto Core)
 endif()
+
